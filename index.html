@@ -40,7 +40,11 @@
     border-right: 1px solid var(--viiva);
     display: flex; flex-direction: column; gap: 2.75rem;
     background: var(--musta); z-index: 10;
+    overflow-y: auto; overscroll-behavior: contain;
+    scrollbar-width: thin; scrollbar-color: var(--viiva) transparent;
   }
+  .sivupalkki::-webkit-scrollbar { width: 6px; }
+  .sivupalkki::-webkit-scrollbar-thumb { background: var(--viiva); border-radius: 3px; }
   .tunnus {
     font-family: var(--serif); font-size: 1.5rem; font-weight: 400; letter-spacing: 0.01em;
     text-decoration: none; color: var(--hopea-vaalea);
@@ -332,7 +336,8 @@
       display: block; background: none; border: 1px solid var(--viiva); color: var(--hopea);
       font: inherit; font-size: 0.9rem; padding: 0.35rem 0.9rem; cursor: pointer;
     }
-    .tehtavat { display: none; width: 100%; padding-top: 1.5rem; }
+    .sivupalkki { overflow: visible; }
+    .tehtavat { display: none; width: 100%; padding-top: 1.5rem; max-height: calc(100vh - 6rem); max-height: calc(100dvh - 6rem - env(safe-area-inset-top, 0px)); overflow-y: auto; overscroll-behavior: contain; }
     .sivupalkki.auki .tehtavat { display: block; }
     main { margin-left: 0; min-height: auto; }
     .etusivu { padding: 5rem 1.5rem 6rem; min-height: 80vh; min-height: 80dvh; }
